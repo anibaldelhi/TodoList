@@ -1,22 +1,20 @@
 import { TodoList } from './TodoList';
 import { todoReducer } from './todoReducer';
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import { TodoAdd } from './TodoAdd';
 
 const initialState = [
-    {
-        id : 1,
-        description: "Primer tarea"
-    },
-    {
-        id: 2,
-        description: "Segunda tarea"
-    }
+    ...JSON.parse(localStorage.getItem('todos') || '""' )
 ]
 
 export const TodoApp = () =>{
 
     const [todos, dispatch] = useReducer( todoReducer , initialState );
+
+    useEffect(() => {
+        localStorage.setItem('todos',JSON.stringify(todos));
+    }, [todos])
+    
 
     const handleNewTodo = (todo) =>{
         const action = {
