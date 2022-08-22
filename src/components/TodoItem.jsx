@@ -1,7 +1,9 @@
-export const TodoItem = ({todo, onDeleteTodo}) =>{
+import { FaCheck, FaClock } from 'react-icons/fa';
+export const TodoItem = ({todo, onDeleteTodo, onDoneTodo}) =>{
     return(
         <li>
-            <span>{todo.description}</span>
+            <span onClick={() =>onDoneTodo(todo.id) }>{todo.description}</span>
+            {todo.done ? <FaCheck/> : <FaClock/>}
             <button
                 type='submit'
                 onClick={() => onDeleteTodo(todo.id)}

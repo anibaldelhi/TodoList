@@ -4,6 +4,16 @@ export const todoReducer = (initialState = [], action ) => {
             return [...initialState, action.payload];
         case 'Delete':
             return initialState.filter(todo=> todo.id !== action.payload);
+        case 'Done':
+            return initialState.map( todo => {
+                if( todo.id === action.payload ){
+                    return {
+                        ...todo,
+                        done: !todo.done
+                    }
+                }
+                return todo;
+            });
         default:
             return initialState;
     }
