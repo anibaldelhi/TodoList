@@ -15,6 +15,7 @@ export const TodoList = ({todos = [], onDeleteTodo, onDoneTodo }) => {
                     )
                 }
             </ListGroup>
+            <p className={todos.length === 0 ? "visible" :"invisible"}>You don't have any tasks to do. Try adding a new one.</p>
         </>
     )
 }
