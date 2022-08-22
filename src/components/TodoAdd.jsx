@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 export const TodoAdd = ({onNewTodo}) => {
     const { description, onInputChange, onResetForm} = useForm({
@@ -23,28 +24,28 @@ export const TodoAdd = ({onNewTodo}) => {
     }
   
     return (
-        <Form onSubmit={onFormSubmit} className="panel panel-default">
-            <h5>What do you want to do?</h5>
-            
+        <Container>
+            <h3>Todo Add</h3>
+            <Form onSubmit={onFormSubmit} className="panel panel-default">
                 <Form.Group>
-                <Stack direction="horizontal" gap={1}>
+                    <Form.Label>What do you want to do?</Form.Label>
                     <Form.Control
-                        className="me-auto"
-                        placeholder="Enter a task description here..."
-                        name='description'
-                        value={description}
-                        required
-                        onChange={onInputChange}
-                    />
-                
-            
-                <Button variant="primary">Add</Button>
-                <div className="vr" />
-                <Button variant="outline-secondary" onClick={() => onResetForm()}>Reset</Button>
-                </Stack>
+                            className="me-auto"
+                            placeholder="Enter a task description here..."
+                            name='description'
+                            value={description}
+                            required
+                            onChange={onInputChange}
+                        />
+                        <br/>
+                    <Stack className="col-md-4 mx-auto" gap={1}>
+                        <Button variant="primary">Add</Button>
+                        <Button variant="outline-secondary" onClick={() => onResetForm()}>Reset</Button>
+                    </Stack>
                 </Form.Group>
-           
-        </Form>
+            
+            </Form>
+        </Container>
   )
 }
 
