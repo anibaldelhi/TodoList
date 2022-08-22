@@ -1,15 +1,23 @@
-import { FaCheck, FaClock } from 'react-icons/fa';
+import { GrCheckmark, GrAlarm } from 'react-icons/gr';
+import ListGroup from 'react-bootstrap/ListGroup';
+
 export const TodoItem = ({todo, onDeleteTodo, onDoneTodo}) =>{
     return(
-        <li>
-            <span onClick={() =>onDoneTodo(todo.id) }>{todo.description}</span>
-            {todo.done ? <FaCheck/> : <FaClock/>}
+        <ListGroup.Item 
+            as="li" 
+            className="d-flex justify-content-between align-items-start"
+            action
+            variant = {todo.done ? "dark" : "light"}
+            onClick={() =>onDoneTodo(todo.id)}
+        >
+            <span>{todo.description} {todo.done ? <GrCheckmark/> : <GrAlarm/>}</span>
+            
             <button
                 type='submit'
                 onClick={() => onDeleteTodo(todo.id)}
                 className='btn btn-danger mt-1'>
-                    Delete
+                   Delete
             </button>
-        </li>
+        </ListGroup.Item>
     )
 }

@@ -1,5 +1,8 @@
 import {useForm} from '../hooks/useForm';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
 
 export const TodoAdd = ({onNewTodo}) => {
     const { description, onInputChange, onResetForm} = useForm({
@@ -20,22 +23,28 @@ export const TodoAdd = ({onNewTodo}) => {
     }
   
     return (
-        <form onSubmit={onFormSubmit}>
-            <input 
-                type='text'
-                placeholder='What do you want to do?'
-                className='form-control'
-                name='description'
-                value={description}
-                onChange={onInputChange}
-            />
-            <button 
-                type='submit'
-                className='btn btn-outline-primary mt-1'
-            >
-                Add new item
-            </button>
-        </form>
+        <Form onSubmit={onFormSubmit} className="panel panel-default">
+            <h5>What do you want to do?</h5>
+            
+                <Form.Group>
+                <Stack direction="horizontal" gap={1}>
+                    <Form.Control
+                        className="me-auto"
+                        placeholder="Enter a task description here..."
+                        name='description'
+                        value={description}
+                        required
+                        onChange={onInputChange}
+                    />
+                
+            
+                <Button variant="primary">Add</Button>
+                <div className="vr" />
+                <Button variant="outline-secondary" onClick={() => onResetForm()}>Reset</Button>
+                </Stack>
+                </Form.Group>
+           
+        </Form>
   )
 }
 

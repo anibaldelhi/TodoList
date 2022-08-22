@@ -1,9 +1,10 @@
-import { TodoItem } from "./TodoItem"
+import { TodoItem } from "./TodoItem";
+import { ListGroup } from "react-bootstrap";
 
 export const TodoList = ({todos = [], onDeleteTodo, onDoneTodo }) => {
 
     return(
-        <ul className = "list-group">
+        <ListGroup as="ul">
             {
                 todos.map(
                     todo => (
@@ -11,6 +12,6 @@ export const TodoList = ({todos = [], onDeleteTodo, onDoneTodo }) => {
                     )
                 )
             }
-        </ul>
+        </ListGroup>
     )
 }

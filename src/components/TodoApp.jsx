@@ -8,16 +8,15 @@ export const TodoApp = () =>{
 
     return(
         <div className = "row">
-            <h1>Todos App</h1>
-            <h2>Total: {todos.length}, pendings: {todos.filter(t => !t.done).length} </h2>
+            <h2>All: {todos.length}, pendings: {todos.filter(t => !t.done).length} </h2>
             <hr />
-            <div className="col-8">
-                <h2>Todo List</h2>
-                <TodoList todos = {todos} onDeleteTodo = {handleDeleteTodo} onDoneTodo = {handleDoneTodo}/>
-            </div>
-            <div className="col-4">
-                <h2>Todo Add</h2>
+            <div className="col-5">
+                <h3>Todo Add</h3>
                 <TodoAdd onNewTodo={handleNewTodo}/>
+            </div>
+            <div className="col-7">
+                <h3>Todo List</h3>
+                <TodoList todos = {todos} onDeleteTodo = {handleDeleteTodo} onDoneTodo = {handleDoneTodo}/>
             </div>
         </div>
     )
