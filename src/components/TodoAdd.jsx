@@ -26,7 +26,7 @@ export const TodoAdd = ({onNewTodo}) => {
     return (
         <Container>
             <h3>Todo Add</h3>
-            <Form onSubmit={onFormSubmit} className="panel panel-default">
+            <Form onSubmit={onFormSubmit}>
                 <Form.Group>
                     <Form.Label>What do you want to do?</Form.Label>
                     <Form.Control
@@ -39,7 +39,7 @@ export const TodoAdd = ({onNewTodo}) => {
                         />
                         <br/>
                     <Stack className="col-md-4 mx-auto" gap={1}>
-                        <Button variant="primary">Add</Button>
+                        <Button type="submit" variant="primary">Add</Button>
                         <Button variant="outline-secondary" onClick={() => onResetForm()}>Reset</Button>
                     </Stack>
                 </Form.Group>
